@@ -6,7 +6,19 @@
 ## 网络结构
 * 模型根据语料处理分类：词袋模型，词向量模型两种，经过测试分类模型最终效果优于回归模型。
 - 词袋模型结构如下：
-![bw_model](https://github.com/2186685150/Image_caption/assets/116703314/30fa4dac-79df-4139-b460-39b3992d9c1c)
--词向量模型如下：
-![wv_model](https://github.com/2186685150/Image_caption/assets/116703314/88a0756f-5e30-4011-adff-04197b8387c8)
--可以看到两者之间仅在输入层以及输出层有较大差距。
+- ![bw_model](https://github.com/2186685150/Image_caption/assets/116703314/30fa4dac-79df-4139-b460-39b3992d9c1c)
+- 词向量模型如下：
+- ![wv_model](https://github.com/2186685150/Image_caption/assets/116703314/88a0756f-5e30-4011-adff-04197b8387c8)
+- 可以看到两者之间仅在输入层以及输出层有较大差距。
+## 模型输出效果
+* 在使用一张RTX A5000算力支持下，两个模型训练均使用了6小时左右训练时间达到收敛，模型指标在50%-70%之间。
+- 测试图片：
+- ![图片3](https://github.com/2186685150/Image_caption/assets/116703314/7687ec59-b112-42f9-94bd-a01bdc47a3a4)
+* 词袋预测输出结果：
+- ![图片1](https://github.com/2186685150/Image_caption/assets/116703314/1d8925ef-6ded-484a-87e6-3180cc7ecc64)
+- 词向量预测输出结果：
+- ![图片2](https://github.com/2186685150/Image_caption/assets/116703314/e296d6c2-250f-4bd9-b603-d3b1d96fc618)
+# 改进方法
+* 考虑使用ResNet50、VGG16等常规CNN网络进行图片特征提取，获得更好的图片特征提取部分效果；
+* 使用更大的语料数据集进行模型训练，上述模型训练集：验证集=6000：1000，效果较差，且中文语料描述存在较多误差；
+* 改进RNN部分网络，使用更为合理的网络进行拟合训练；
